@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Consultation Fees</title>
+  <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        margin: 20px;
+        line-height: 1.6;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    input[type="number"], input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+    }
+
+    button {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #27ae60;
+        color: #fff;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+        background-color: #1e8449;
+        transform: translateY(-2px);
+    }
+
+    button:active {
+        transform: translateY(1px);
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #3498db;
+        font-weight: 500;
+        transition: color 0.3s;
+        text-align: center;
+    }
+
+    a:hover {
+        color: #1d6fa5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Set Your Consultation Fee</h2>
+    <p>Update the fee you are charging for a standard consultation:</p>
+
+    <form method="POST">
+        <label>Fee Amount (₹):</label>
+        <input type="number" name="fee_amount" step="0.01" placeholder="Enter your consultation fee" required>
+
+        <label>UPI ID for Payment (Optional):</label>
+        <input type="text" name="upi_id" placeholder="Enter your UPI ID">
+
+        <button type="submit">Save Fee</button>
+    </form>
+
+    <a href="/doctor/dashboard">⬅ Back to Dashboard</a>
+  </div>
+</body>
+</html>

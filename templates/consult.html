@@ -1,0 +1,55 @@
+concultsion html for normal <!DOCTYPE html>
+<html>
+<head>
+    <title>Start Consultation</title>
+    <script>
+        function validateSymptoms() {
+            const symptoms = document.getElementById("symptoms").value.trim();
+
+            // Check if empty
+            if (!symptoms) {
+                alert("Please enter your symptoms.");
+                return false;
+            }
+
+            // Check for invalid characters (only letters, commas, spaces)
+            const regex = /^[a-zA-Z0-9 ,.-]+$/;
+            if (!regex.test(symptoms)) {
+                alert("Symptoms contain invalid characters. Use letters, numbers, commas, periods, or hyphens only.");
+                return false;
+            }
+
+            // Minimum length check
+            if (symptoms.length < 3) {
+                alert("Symptoms description is too short.");
+                return false;
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+</head>
+<body>
+    <h2>Start New Consultation</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+            <li style="color: {% if category == 'error' %}red{% elif category == 'success' %}green{% else %}blue{% endif %}">
+                {{ message }}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" onsubmit="return validateSymptoms();">
+        <label>Enter your symptoms:</label><br>
+        <textarea id="symptoms" name="symptoms" rows="5" cols="50" required></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p><a href="/patient/dashboard">Back to Dashboard</a></p>
+</body>
+</html>

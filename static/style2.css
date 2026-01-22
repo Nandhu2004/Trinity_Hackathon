@@ -1,0 +1,275 @@
+/* =========================
+   THEME COLORS (RED + BLUE)
+========================= */
+:root {
+  --red: #e63946;
+  --red-light: #ff6b6b;
+
+  --blue-dark: #0d1b2a;
+  --blue: #1d3557;
+  --blue-light: #457b9d;
+
+  --white: #ffffff;
+  --gray: #f4f6f9;
+  --border: #e0e0e0;
+}
+
+/* =========================
+   PAGE BASE STYLE
+========================= */
+body {
+  background: var(--gray);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--blue-dark);
+}
+
+h2 {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--blue);
+}
+
+h3 {
+  margin-top: 30px;
+  color: var(--blue);
+  text-align: center;
+}
+
+/* =========================
+   FORM BOX
+========================= */
+form {
+  background: var(--white);
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px 25px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  outline: none;
+}
+
+select:focus {
+  border-color: var(--blue);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  background: var(--red);
+  color: var(--white);
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--red-light);
+}
+
+/* =========================
+   DOCTOR LIST BOX
+========================= */
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+li {
+  background: var(--white);
+  padding: 15px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-bottom: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+}
+
+li b {
+  font-size: 16px;
+  color: var(--blue);
+}
+
+li br {
+  line-height: 1.8;
+}
+
+hr {
+  display: none;
+}
+
+/* =========================
+   SELECT DOCTOR BUTTON
+========================= */
+a button {
+  background: var(--blue);
+  margin-top: 10px;
+}
+
+a button:hover {
+  background: var(--blue-light);
+}
+
+/* =========================
+   BACK LINK
+========================= */
+a[href*="dashboard"] {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: var(--blue);
+  font-weight: bold;
+}
+
+a[href*="dashboard"]:hover {
+  color: var(--red);
+}
+/* =========================
+   AI HEALTH ASSISTANT THEME
+========================= */
+
+body {
+  background: linear-gradient(135deg, #f4f8ff, #ffffff);
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #1d3557;
+}
+
+/* Title */
+h2 {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 28px;
+  color: #1d3557;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Chat Box Container (overriding inline style visually) */
+div[style*="overflow:auto"] {
+  width: 65%;
+  margin: 20px auto;
+  border-radius: 12px;
+  border: 1px solid #dbe2ef !important;
+  background: #ffffff !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  padding: 15px !important;
+}
+
+/* Messages */
+div[style*="margin-bottom:10px"] {
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px !important;
+  font-size: 14px;
+  line-height: 1.6;
+  background: #f1f6fb;
+  border-left: 4px solid #457b9d;
+}
+
+/* Sender name */
+div[style*="margin-bottom:10px"] b {
+  color: #e63946;
+  margin-right: 5px;
+}
+
+/* Chat Form */
+form[style*="margin-top:10px"] {
+  width: 65%;
+  margin: 10px auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Input box */
+input[name="message"] {
+  flex: 1;
+  border-radius: 25px;
+  border: 1px solid #dbe2ef;
+  padding: 10px 15px !important;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input[name="message"]:focus {
+  border-color: #457b9d;
+  box-shadow: 0 0 0 2px rgba(69, 123, 157, 0.15);
+}
+
+/* Buttons */
+button {
+  border-radius: 20px;
+  border: none;
+  padding: 9px 18px !important;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Send Button */
+button[type="submit"]:not([name="clear_chat"]) {
+  background: #1d3557;
+  color: white;
+}
+
+button[type="submit"]:not([name="clear_chat"]):hover {
+  background: #457b9d;
+}
+
+/* Clear Chat Button */
+button[name="clear_chat"] {
+  background: #e63946 !important;
+  color: white;
+}
+
+button[name="clear_chat"]:hover {
+  background: #ff6b6b !important;
+}
+
+/* Proceed Link */
+a[href="/confirm"] {
+  display: block;
+  width: fit-content;
+  margin: 25px auto;
+  padding: 10px 22px;
+  background: linear-gradient(135deg, #e63946, #ff6b6b);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+  transition: 0.2s;
+}
+
+a[href="/confirm"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(230, 57, 70, 0.4);
+}

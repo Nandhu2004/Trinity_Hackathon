@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novena - Patient Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #223a66;
+            --secondary: #e12454;
+            --bg-gradient: linear-gradient(120deg, #f4f9fc 0%, #e6eff7 100%);
+            --text-muted: #6f8ba4;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: var(--white);
+            width: 420px;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(34, 58, 102, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative top accent */
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h2 {
+            color: var(--primary);
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .header h2 span {
+            color: var(--secondary);
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px 12px 42px;
+            border: 1px solid #e1e8ef;
+            border-radius: 10px;
+            outline: none;
+            transition: 0.3s;
+            background: #fcfdfe;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(34, 58, 102, 0.08);
+        }
+
+        .flex-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            cursor: pointer;
+        }
+
+        .forgot-pass {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(34, 58, 102, 0.2);
+        }
+
+        .login-btn:hover {
+            background: #1a2e52;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34, 58, 102, 0.3);
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: 0.2s;
+        }
+
+        .back-home:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="header">
+        <h2>Welcome Back<span>.</span></h2>
+        <p>Login to access your medical dashboard</p>
+    </div>
+
+    <form method="POST" action="/login">
+        <div class="form-group">
+            <label>Username or Email</label>
+            <div class="input-wrapper">
+                <i class="fas fa-user"></i>
+                <input type="text" name="uname" placeholder="Enter your username" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <div class="input-wrapper">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="psw" placeholder="••••••••" required>
+            </div>
+        </div>
+
+        <div class="flex-row">
+            <label class="remember-me">
+                <input type="checkbox" name="remember"> Remember me
+            </label>
+            <a href="#" class="forgot-pass">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">LOGIN</button>
+    </form>
+    <a href="/" class="back-home"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Doctor Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* 🌐 Global */
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f4f7fb;
+    color: #2c3e50;
+}
+
+/* 🧭 Layout */
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* 🟦 Sidebar */
+.sidebar {
+    width: 240px;
+    background: #1f3b63;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.logo span {
+    color: #ff4d6d;
+}
+
+.nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    color: #dce3f1;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: rgba(255,255,255,0.12);
+    color: white;
+}
+
+/* 🧑‍⚕️ Main Area */
+.main {
+    flex: 1;
+    padding: 25px 30px;
+}
+
+/* 👋 Welcome Card */
+.welcome-card {
+    background: white;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.welcome-card h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.role {
+    display: inline-block;
+    background: #ffe3e8;
+    color: #ff4d6d;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-top: 6px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    background: #1f3b63;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* 📦 Action Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.action-card {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+}
+
+.action-card h3 {
+    margin: 10px 0 6px;
+    font-size: 16px;
+}
+
+.action-card p {
+    font-size: 13px;
+    color: #7a8ca5;
+}
+
+/* 📊 Data Cards */
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+/* 📋 Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th {
+    text-align: left;
+    font-size: 13px;
+    color: #7a8ca5;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+td {
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+tr:hover {
+    background: #f8fbff;
+}
+
+/* ✅ Buttons */
+.btn-call {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-call:hover {
+    background: #219150;
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 200px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+<!-- 🟦 Sidebar -->
+<div class="sidebar">
+    <div class="logo">TeleHeal<span>.</span></div>
+    <div class="nav">
+        <a href="/doctor_dashboard"> Dashboard</a>
+        <a href="/doctor/set_fee"> Payment</a>
+        <a href="/logout"> Logout</a>
+    </div>
+</div>
+
+<!-- 🧑‍⚕️ Main Content -->
+<div class="main">
+
+<!-- Welcome Section -->
+<div class="welcome-card">
+    <div>
+        <h2>Welcome, Doctor</h2>
+        <div class="role">Doctor</div>
+    </div>
+    <div class="avatar">DR</div>
+</div>
+
+<!-- Action Cards -->
+<div class="cards">
+    <div class="action-card">
+        <h3>Start Consultation</h3>
+        <p>Check patient symptoms with AI</p>
+    </div>
+    <div class="action-card">
+        <h3>Medical Records</h3>
+        <p>View patient health history</p>
+    </div>
+</div>
+
+<!-- Statistics -->
+<div class="card">
+    <h3>Statistics</h3>
+    <p>Total Patients Treated: <b>{{ total_patients }}</b></p>
+</div>
+
+<!-- Pending Appointments -->
+<div class="card">
+    <h3>Pending Appointments</h3>
+    <table>
+        <tr>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Action</th>
+        </tr>
+        {% for a in pending %}
+        <tr>
+            <td>{{ a.patient_username }}</td>
+            <td>{{ a.appointment_date }}</td>
+            <td>{{ a.appointment_time }}</td>
+            <td>
+                <a href="/appointment_status/{{ a.id }}/Approved">Approve</a> |
+                <a href="/appointment_status/{{ a.id }}/Rejected">Reject</a>
+                {% if a.status == 'Approved' %}
+                <a href="https://yourdomain.daily.co/appointment-{{ a.id }}" target="_blank">
+                    <button class="btn-call">Join Call</button>
+                </a>
+                {% else %}
+                ---
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- Approved Appointments -->
+<div class="card">
+    <h3>Approved Appointments</h3>
+    <table>
+        <tr>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Call</th>
+        </tr>
+        {% for a in approved %}
+        <tr>
+            <td>{{ a.patient_username }}</td>
+            <td>{{ a.appointment_date }}</td>
+            <td>
+                <a href="https://meet.google.com/vxn-gmdd-evk" target="_blank">
+                    <button class="btn-call">Join Call</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

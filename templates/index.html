@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeleHeal - Health & Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container flex-between">
+            <div class="contact-info">
+                <span><i class="fas fa-envelope"></i> support@TeleHeal.com</span>
+                <span><i class="fas fa-map-marker-alt"></i> Vellore, India</span>
+            </div>
+            <div class="top-social">
+                <span>Call Now: <b>823-4565-13456</b></span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                <span>TeleHeal<span>.</span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Doctors</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+            <div class="nav-auth">
+                {% if session.get('user_id') %}
+                    <a href="/dashboard" class="btn-login"><i class="fas fa-user-circle"></i> Dashboard</a>
+                    <a href="/logout" class="btn-register">Logout</a>
+                {% else %}
+                    <a href="/login" class="btn-login">Login</a>
+                    
+                    <div class="register-dropdown">
+    <button class="btn-register">Register <i class="fas fa-chevron-down"></i></button>
+    
+    <div class="dropdown-content">
+        <div class="dropdown-inner">
+            <a href="/register/patient"><i class="fas fa-user"></i> As Patient</a>
+            <a href="/register/doctor"><i class="fas fa-user-md"></i> As Doctor</a>
+        </div>
+    </div>
+</div>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="badge">TOTAL HEALTH CARE SOLUTION</span>
+                <h1>Your Most Trusted <br><span>Health Partner</span></h1>
+                <p>Experience world-class healthcare with our team of expert doctors. We provide 24/7 support for all your medical needs.</p>
+                <div class="hero-btns">
+                    <a href="/register/patient" class="btn-main">GET STARTED <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/bg/slider-bg-1.jpeg') }}" alt="Medical Professional">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar container">
+        <div class="stat-item"><h2>5k+</h2><p>Happy Patients</p></div>
+        <div class="stat-item"><h2>150+</h2><p>Expert Doctors</p></div>
+        <div class="stat-item"><h2>20+</h2><p>Departments</p></div>
+        <div class="stat-item"><h2>99%</h2><p>Success Rate</p></div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-box about">
+                <div class="logo">TeleHeal<span>.</span></div>
+                <p>Providing the best medical services with care and professionalism.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>Departments</h3>
+                <ul>
+                    <li><a href="#">Surgery</a></li>
+                    <li><a href="#">Cardiology</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Subscribe</h3>
+                <div class="sub-form">
+                    <input type="email" placeholder="Email Address">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TeleHeal Health Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="scroll-top"><i class="fas fa-arrow-up"></i></a>
+
+</body>
+</html>

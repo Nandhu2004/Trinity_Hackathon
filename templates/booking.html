@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<body>
+<h2>Book an Appointment</h2>
+
+<form method="POST">
+    <label>Select Specialization:</label>
+    <select name="specialization" required>
+        <option value="">-- Select --</option>
+        {% for spec in specializations %}
+        <option value="{{ spec }}">{{ spec }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Search Doctors</button>
+</form>
+
+{% if doctors %}
+    <h3>Available Doctors:</h3>
+    <ul>
+        {% for doc in doctors %}
+        <li>
+            <b>{{ doc[1] }}</b> ({{ doc[2] }}) <br>
+            Username: {{ doc[0] }} <br>
+            <a href="/finalize/{{ doc[0] }}/{{ specialization }}">
+                <button>Select Doctor</button>
+            </a>
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<a href="patient/dashboard">Back to Dashboard</a>
+</body>
+</html>

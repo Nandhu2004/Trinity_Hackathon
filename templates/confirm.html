@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm Your Symptoms</title>
+  <style>
+    /* General body styling */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        margin: 20px;
+        line-height: 1.6;
+    }
+
+    /* Container card */
+    .container {
+        max-width: 700px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Headings */
+    h2 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    /* Paragraphs */
+    p {
+        font-size: 16px;
+        margin: 12px 0;
+    }
+
+    /* Textarea styling */
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        resize: none;
+        background-color: #f9f9f9;
+        margin-bottom: 15px;
+    }
+
+    /* Form buttons */
+    form {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    button {
+        flex: 1;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button[name="choice"][value="enough"] {
+        background-color: #27ae60;
+        color: #fff;
+    }
+
+    button[name="choice"][value="more"] {
+        background-color: #f39c12;
+        color: #fff;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+
+    button:active {
+        transform: translateY(1px);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Confirm Your Symptoms</h2>
+    <p>Here’s the info collected by your AI Health Assistant:</p>
+    <textarea rows="6" readonly>{{ symptoms }}</textarea>
+    <p>Is this information enough?</p>
+    <form method="post">
+        <button name="choice" value="enough">✅ Enough, proceed to summary</button>
+        <button name="choice" value="more">✏️ Add more symptoms</button>
+    </form>
+  </div>
+</body>
+</html>

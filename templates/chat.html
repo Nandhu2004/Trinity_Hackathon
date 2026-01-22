@@ -1,0 +1,15 @@
+<h2>Chat with {{ patient }}</h2>
+
+<div style="border:1px solid #ccc; padding:10px; height:300px; overflow-y:scroll;">
+{% for m in messages %}
+<p><b>{{ m.sender }}:</b> {{ m.message }}</p>
+{% endfor %}
+</div>
+
+<form method="POST" action="/send_message">
+<input type="hidden" name="receiver" value="{{ patient }}">
+<input type="text" name="message" required>
+<button type="submit">Send</button>
+</form>
+
+<a href="/doctor_dashboard">Back</a>

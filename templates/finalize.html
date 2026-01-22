@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalise Appointment</title>
+  <style>
+    /* General body styling */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f7fa;
+        color: #333;
+        margin: 20px;
+        line-height: 1.6;
+    }
+
+    /* Container card */
+    .container {
+        max-width: 700px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Headings */
+    h2 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Paragraphs */
+    p {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    p b {
+        color: #2c3e50;
+    }
+
+    /* Highlight payment info */
+    .payment-info {
+        color: #e74c3c;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    /* Form elements */
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    input[type="datetime-local"],
+    textarea,
+    input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        margin-bottom: 15px;
+        resize: none;
+        background-color: #f9f9f9;
+    }
+
+    textarea {
+        min-height: 100px;
+    }
+
+    /* Buttons */
+    button {
+        display: inline-block;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #27ae60;
+        color: #fff;
+        transition: background-color 0.3s, transform 0.2s;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #1e8449;
+        transform: translateY(-2px);
+    }
+
+    button:active {
+        transform: translateY(1px);
+    }
+
+    /* Back link */
+    a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #3498db;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #1d6fa5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Finalise Appointment</h2>
+
+    <p><b>Doctor:</b> {{ doctor.fullname }}</p>
+    <p><b>Specialization:</b> {{ specialization }}</p>
+    <p><b>Consultation Fee:</b> ₹ {{ fee_amount }}</p>
+    <p><b>Doctor UPI ID:</b> {{ upi_id }}</p>
+    <p class="payment-info">Please make the payment before confirming your appointment.</p>
+
+    <form method="POST">
+        <label>Choose Appointment Date & Time:</label>
+        <input type="datetime-local" name="appointment_time" required>
+
+        <label>Describe your medical issue:</label>
+        <textarea name="medical_info" placeholder="Enter your symptoms or concerns..." required></textarea>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+
+    <a href="/booking">⬅ Back to Booking</a>
+  </div>
+</body>
+</html>

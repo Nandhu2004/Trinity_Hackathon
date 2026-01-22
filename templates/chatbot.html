@@ -1,0 +1,22 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+</head>
+<h2>AI Health Assistant</h2>
+
+<div style="border:1px solid #ccc; padding:10px; height:350px; overflow:auto; background:#f9f9f9;">
+    {% for sender, msg in chat %}
+        <div style="margin-bottom:10px;">
+            <b>{{ sender }}:</b> {{ msg }}
+        </div>
+    {% endfor %}
+</div>
+
+<form method="post" style="margin-top:10px;">
+    <input name="message" placeholder="Type your response..." style="width:65%; padding:8px;">
+    <button type="submit" style="padding:8px;">Send</button>
+    <button type="submit" name="clear_chat" style="padding:8px; background:red; color:white;">Clear Chat</button>
+</form>
+
+
+<br>
+<a href="/confirm">Proceed to Consultation</a>
