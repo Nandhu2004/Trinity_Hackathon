@@ -1,5 +1,4 @@
 **Industry-Academia Conclave Hackathon - VIT SCORE**
-
 **FIRST PRIZE**
 
 TEAM NAME: Trinity<br>
